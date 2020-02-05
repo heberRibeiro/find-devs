@@ -22,9 +22,9 @@ public class DataInstantiation implements CommandLineRunner {
 
 		devRepository.deleteAll();
 
-		Dev joao = new Dev(null, "João da Silva", "joaosilva", "Desenvolvedor web", "");
-		Dev maria = new Dev(null, "Maria da Silva", "mariasilva", "Desenvolvedora web", "");
-		Dev jose = new Dev(null, "José da Silva", "josesilva", "Desenvolvedor web", "");
+		Dev joao = new Dev(null, "João da Silva", "joaosilva", "Desenvolvedor web", "", "");
+		Dev maria = new Dev(null, "Maria da Silva", "mariasilva", "Desenvolvedora web", "", "");
+		Dev jose = new Dev(null, "José da Silva", "josesilva", "Desenvolvedor web", "", "");
 
 		devRepository.saveAll(Arrays.asList(joao, maria, jose));
 	}

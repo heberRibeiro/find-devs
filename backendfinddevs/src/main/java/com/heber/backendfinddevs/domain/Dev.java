@@ -1,10 +1,11 @@
 package com.heber.backendfinddevs.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Document(collection = "dev")
 public class Dev implements Serializable {
@@ -13,21 +14,23 @@ public class Dev implements Serializable {
 	@Id
 	private String id;
 	private String name;
+	@JsonProperty(value = "login") // O nome da variável deve ser igual à chave no documento JSON retornado da API.
 	private String github_username;
 	private String bio;
 	private String avatar_url;
-	private List<String> techs;
+	private String techs;
 
 	public Dev() {
 
 	}
 
-	public Dev(String id, String name, String github_username, String bio, String avatar_url) {
+	public Dev(String id, String name, String github_username, String bio, String avatar_url, String techs) {
 		this.id = id;
 		this.name = name;
 		this.github_username = github_username;
 		this.bio = bio;
 		this.avatar_url = avatar_url;
+		this.techs = techs;
 	}
 
 	public String getId() {
@@ -70,11 +73,11 @@ public class Dev implements Serializable {
 		this.avatar_url = avatar_url;
 	}
 
-	public List<String> getTechs() {
+	public String getTechs() {
 		return techs;
 	}
 
-	public void setTechs(List<String> techs) {
+	public void setTechs(String techs) {
 		this.techs = techs;
 	}
 

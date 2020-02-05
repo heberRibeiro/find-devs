@@ -17,5 +17,9 @@ public class DevService {
 	public List<Dev> findAll() {
 		return devRepository.findAll();
 	}
+	
+	public Dev insert(Dev dev) {
+		return devRepository.insert(dev);
+	}
 
 }
