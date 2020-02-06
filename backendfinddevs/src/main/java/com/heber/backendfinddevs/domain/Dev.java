@@ -18,7 +18,7 @@ public class Dev implements Serializable {
 	private String github_username;
 	private String bio;
 	private String avatar_url;
-	private String techs;
+	private String[] techs;// = new ArrayList<>();
 	private Double longitude;
 	private Double latitude;
 
@@ -26,7 +26,7 @@ public class Dev implements Serializable {
 
 	}
 
-	public Dev(String id, String name, String github_username, String bio, String avatar_url, String techs,
+	public Dev(String id, String name, String github_username, String bio, String avatar_url, String[] techs,
 			Double longitude, Double latitude) {
 		this.id = id;
 		this.name = name;
@@ -78,11 +78,11 @@ public class Dev implements Serializable {
 		this.avatar_url = avatar_url;
 	}
 
-	public String getTechs() {
+	public String[] getTechs() {
 		return techs;
 	}
 
-	public void setTechs(String techs) {
+	public void setTechs(String[] techs) {
 		this.techs = techs;
 	}
 

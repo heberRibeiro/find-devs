@@ -48,8 +48,8 @@ public class DevResource {
 		ResponseEntity<Dev> entity = template.getForEntity(url.toUri(), Dev.class);
 
 		Dev dev = new Dev(null, entity.getBody().getName(), entity.getBody().getGithub_username(),
-				entity.getBody().getBio(), entity.getBody().getAvatar_url(), devDto.getTechs(), devDto.getLongitude(),
-				devDto.getLatitude());
+				entity.getBody().getBio(), entity.getBody().getAvatar_url(), devDto.getTechs().trim().split(",|;|-"),
+				devDto.getLongitude(), devDto.getLatitude());
 
 		dev = devService.insert(dev);
 

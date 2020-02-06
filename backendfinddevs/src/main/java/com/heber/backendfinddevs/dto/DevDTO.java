@@ -18,7 +18,7 @@ public class DevDTO implements Serializable {
 
 	public DevDTO(Dev dev) {
 		github_username = dev.getGithub_username();
-		techs = dev.getTechs();
+		techs = dev.getTechs().toString();
 		longitude = dev.getLongitude();
 		latitude = dev.getLatitude();
 	}
