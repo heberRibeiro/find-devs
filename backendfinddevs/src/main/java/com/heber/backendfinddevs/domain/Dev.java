@@ -3,6 +3,7 @@ package com.heber.backendfinddevs.domain;
 import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,13 +15,17 @@ public class Dev implements Serializable {
 	@Id
 	private String id;
 	private String name;
-	@JsonProperty(value = "login") // O nome da variável deve ser igual à chave no documento JSON retornado da API.
+	@JsonProperty(value = "login") // Variable's name must be the same that one returned from GitHub's API.
 	private String github_username;
 	private String bio;
 	private String avatar_url;
-	private String[] techs;// = new ArrayList<>();
-	private Double longitude;
-	private Double latitude;
+	private String[] techs;
+	private GeoJsonPoint location;
+
+	/**
+	 * location is stored in GeoJSON format. { "type" : "Point", "coordinates" : [
+	 * x, y ] }
+	 */
 
 	public Dev() {
 
@@ -34,8 +39,7 @@ public class Dev implements Serializable {
 		this.bio = bio;
 		this.avatar_url = avatar_url;
 		this.techs = techs;
-		this.longitude = longitude;
-		this.latitude = latitude;
+		this.location = new GeoJsonPoint(longitude, latitude);
 	}
 
 	public String getId() {
@@ -86,20 +90,12 @@ public class Dev implements Serializable {
 		this.techs = techs;
 	}
 
-	public Double getLongitude() {
-		return longitude;
+	public GeoJsonPoint getLocation() {
+		return location;
 	}
 
-	public void setLongitude(Double longitude) {
-		this.longitude = longitude;
-	}
-
-	public Double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(Double latitude) {
-		this.latitude = latitude;
+	public void setLocation(GeoJsonPoint location) {
+		this.location = location;
 	}
 
 	@Override

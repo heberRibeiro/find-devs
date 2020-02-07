@@ -38,14 +38,14 @@ public class DevResource {
 	@PostMapping
 	public ResponseEntity<Dev> insert(@RequestBody DevDTO devDto) {
 		/*
-		 * A partir do github_username busca-se o restante das infprmações do Dev usando
-		 * a api do GitHub -- https://api.github.com/users/{github_username} --
+		 * From github_username, fetching the Dev's informations using GitHub's API --
+		 * https://api.github.com/users/{github_username} --
 		 */
 
 		UriComponents url = UriComponentsBuilder.newInstance().scheme("https").host("api.github.com/users")
 				.path(devDto.getGithub_username()).build();
 
-		ResponseEntity<Dev> entity = template.getForEntity(url.toUri(), Dev.class);
+		ResponseEntity<DevDTO> entity = template.getForEntity(url.toUri(), DevDTO.class);
 
 		Dev dev = new Dev(null, entity.getBody().getName(), entity.getBody().getGithub_username(),
 				entity.getBody().getBio(), entity.getBody().getAvatar_url(), devDto.getTechs().trim().split(",|;|-"),
