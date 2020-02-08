@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -20,7 +21,7 @@ import com.heber.backendfinddevs.dto.DevDTO;
 import com.heber.backendfinddevs.services.DevService;
 
 @RestController
-@RequestMapping(value = "/devs")
+@RequestMapping
 public class DevResource {
 
 	@Autowired
@@ -29,13 +30,13 @@ public class DevResource {
 	@Autowired
 	private RestTemplate template;
 
-	@GetMapping
+	@GetMapping(value = "/devs")
 	public ResponseEntity<List<Dev>> findAll() {
 		List<Dev> devs = devService.findAll();
 		return ResponseEntity.ok(devs);
 	}
 
-	@PostMapping
+	@PostMapping(value = "/devs")
 	public ResponseEntity<Dev> insert(@RequestBody DevDTO devDto) {
 		/*
 		 * From github_username, fetching the Dev's informations using GitHub's API --
@@ -57,4 +58,14 @@ public class DevResource {
 
 		return ResponseEntity.created(uri).body(dev);
 	}
+
+	@GetMapping(value = "/search")
+	public ResponseEntity<List<Dev>> findByTechs(@RequestParam(value = "techs") String techs) {
+		String[] techsList = techs.trim().split(",|;|-");
+
+		List<Dev> devs = devService.findByTechs(techsList);
+
+		return ResponseEntity.ok().body(devs);
+	}
+
 }

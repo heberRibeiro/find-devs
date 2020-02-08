@@ -28,5 +28,9 @@ public class DevService {
 
 		return devRepository.insert(dev);
 	}
+	
+	public List<Dev> findByTechs(String[] techs) {
+		return devRepository.findByTechs(techs);
+	}
 
 }
