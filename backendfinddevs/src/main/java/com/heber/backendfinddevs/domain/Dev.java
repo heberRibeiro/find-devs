@@ -6,8 +6,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @Document(collection = "dev")
 public class Dev implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -15,7 +13,6 @@ public class Dev implements Serializable {
 	@Id
 	private String id;
 	private String name;
-	@JsonProperty(value = "login") // Variable's name must be the same that one returned from GitHub's API.
 	private String github_username;
 	private String bio;
 	private String avatar_url;

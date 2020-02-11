@@ -2,6 +2,7 @@ package com.heber.backendfinddevs.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.heber.backendfinddevs.domain.Dev;
 
 public class DevDTO implements Serializable {
@@ -10,6 +11,7 @@ public class DevDTO implements Serializable {
 	private String name;
 	private String bio;
 	private String avatar_url;
+	@JsonAlias({ "github_username", "login" }) // Defines one or more alternative names for a property during deserialization.
 	private String github_username;
 	private String techs;
 	private Double longitude;

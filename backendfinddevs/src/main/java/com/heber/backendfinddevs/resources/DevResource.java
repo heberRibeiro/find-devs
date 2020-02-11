@@ -19,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.heber.backendfinddevs.domain.Dev;
 import com.heber.backendfinddevs.dto.DevDTO;
 import com.heber.backendfinddevs.services.DevService;
+import com.heber.backendfinddevs.util.Convert;
 
 @RestController
 @RequestMapping
@@ -49,7 +50,7 @@ public class DevResource {
 		ResponseEntity<DevDTO> entity = template.getForEntity(url.toUri(), DevDTO.class);
 
 		Dev dev = new Dev(null, entity.getBody().getName(), entity.getBody().getGithub_username(),
-				entity.getBody().getBio(), entity.getBody().getAvatar_url(), devDto.getTechs().trim().split(",|;|-"),
+				entity.getBody().getBio(), entity.getBody().getAvatar_url(), Convert.StringToArray(devDto.getTechs()),
 				devDto.getLongitude(), devDto.getLatitude());
 
 		dev = devService.insert(dev);
@@ -61,7 +62,7 @@ public class DevResource {
 
 	@GetMapping(value = "/search")
 	public ResponseEntity<List<Dev>> findByTechs(@RequestParam(value = "techs") String techs) {
-		String[] techsList = techs.trim().split(",|;|-");
+		String[] techsList = Convert.StringToArray(techs);
 
 		List<Dev> devs = devService.findByTechs(techsList);
 
