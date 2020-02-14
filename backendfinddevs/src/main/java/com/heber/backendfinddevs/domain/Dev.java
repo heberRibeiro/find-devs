@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "dev")
@@ -17,6 +19,7 @@ public class Dev implements Serializable {
 	private String bio;
 	private String avatar_url;
 	private String[] techs;
+	@GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
 	private GeoJsonPoint location;
 
 	/**
@@ -29,14 +32,14 @@ public class Dev implements Serializable {
 	}
 
 	public Dev(String id, String name, String github_username, String bio, String avatar_url, String[] techs,
-			Double longitude, Double latitude) {
+			GeoJsonPoint location) {
 		this.id = id;
 		this.name = name;
 		this.github_username = github_username;
 		this.bio = bio;
 		this.avatar_url = avatar_url;
 		this.techs = techs;
-		this.location = new GeoJsonPoint(longitude, latitude);
+		this.location = location;// new GeoJsonPoint(longitude, latitude);
 	}
 
 	public String getId() {
@@ -119,5 +122,4 @@ public class Dev implements Serializable {
 			return false;
 		return true;
 	}
-
 }
