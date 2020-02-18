@@ -1,19 +1,62 @@
 main {
     width: 1;
+    margin-top: 50px;
 }
 
 main ul {
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 15px 15px;
 }
 
-li > header {
+main ul li {
+    background-color: #fff;
+}
+
+li.dev-item > header {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-header > img {
-    width: 10%;
-    height: 10%%;
+li.dev-item header > img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+}
+
+li.dev-item  header .dev-info {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+li.dev-item .dev-info strong {
+    display: block;
+    color: #333;
+}
+
+li.dev-item .dev-info span {
+    display: block;
+    font-size: 13px;
+    color: #999;
+    margin-top: 2px;
+}
+
+li.dev-item p {
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 5px;
+}
+
+li.dev-item a {
+    color: #8e4dff;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 10px 5px;
+}
+
+li.dev-item a:hover {
+    color: #5a2ea6;
 }
