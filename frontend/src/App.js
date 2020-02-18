@@ -2,6 +2,7 @@ import React from 'react';
 
 import './Global.css'
 import './App.css'
+import './Aside.css'
 
 function App() {
   return (

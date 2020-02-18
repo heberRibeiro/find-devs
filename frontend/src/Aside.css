@@ -1,0 +1,54 @@
+aside {
+    background: #FFF;
+    padding: 5% 5%;
+}
+
+aside strong {
+    text-align: center;
+    display: block;
+    font-size: 125%;
+    color: #333;  
+}
+
+aside form {
+    margin-top: 30px;
+}
+
+form label {
+    color: #acacac;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+form input {
+    height: 2rem;
+    font-size: 14px;
+    color: #666;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+div.longitude {
+    padding-right: 5%;
+}
+
+aside form button {
+    width: 100%;
+    border: 0;
+    background: #7d40e7;
+    border-radius: 2px;
+    padding: 2.5vh 10vw;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+
+aside form button:hover {
+    background: #6931ca;
+}
+
+
