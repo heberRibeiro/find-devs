@@ -1,0 +1,19 @@
+main {
+    width: 1;
+}
+
+main ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+li > header {
+    display: flex;
+    flex-direction: row;
+}
+
+header > img {
+    width: 10%;
+    height: 10%;
+}
