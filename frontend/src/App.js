@@ -34,7 +34,19 @@ function App() {
         </form>
       </aside>
       <main>
-
+        <ul>
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars1.githubusercontent.com/u/55813932?s=460&v=4" alt="Heber Ribeiro"/>
+              <div className="dev-info">
+                <strong>Heber Ribeiro</strong>
+                <span>Java, JavaScript, Spring Boot, React</span>
+              </div>
+              <p>Desenvolvedor em constante aprendizado</p>
+              <a href="https://github.com/heberRibeiro/">Acessar perfil do GitHub</a>
+            </header>
+          </li>
+        </ul>
       </main>
     </div>
   );
