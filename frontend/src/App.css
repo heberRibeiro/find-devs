@@ -12,8 +12,9 @@ label, input {
 
 .coordinates {
     height: 100%;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
 }
 
 .longitude, .latitude {
