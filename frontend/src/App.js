@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './Global.css'
 import './App.css'
@@ -6,6 +6,20 @@ import './Aside.css'
 import './Main.css'
 
 function App() {
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position);
+      },
+      (err) => {
+        console.log(err)
+      },
+      {
+        timeout: 30000,
+      }
+    );
+  }, [])
+
   return (
     <div id="app">
       <aside>
