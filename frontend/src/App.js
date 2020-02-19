@@ -9,6 +9,9 @@ function App() {
   const [longitude, setLongitude] = useState('')
   const [latitude, setLatitude] = useState('')
 
+  const [github_username, setGithubUsername] = useState('')
+  const [techs, setTechs] = useState('')
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -33,10 +36,20 @@ function App() {
         <form method="post">
 
           <label htmlFor="github_username">Usuário do GitHub</label>
-          <input name="github_username" id="github_username" />
+          <input
+            name="github_username"
+            id="github_username"
+            value={github_username}
+            onChange={e => setGithubUsername(e.target.value)}
+          />
 
           <label htmlFor="techs">Tecnologias</label>
-          <input name="techs" id="techs" />
+          <input
+            name="techs"
+            id="techs"
+            value={techs}
+            onChange={e => setTechs(e.target.value)}
+          />
 
           <label htmlFor="link">Link do GitHub</label>
           <input name="link" id="link" />
