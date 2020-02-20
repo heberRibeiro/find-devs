@@ -1,9 +1,9 @@
-package com.heber.backendfinddevs.dto;
+package com.heber.backend.dto;
 
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.heber.backendfinddevs.domain.Dev;
+import com.heber.backend.domain.Dev;
 
 public class DevDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

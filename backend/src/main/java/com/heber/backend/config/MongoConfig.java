@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.config;
+package com.heber.backend.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

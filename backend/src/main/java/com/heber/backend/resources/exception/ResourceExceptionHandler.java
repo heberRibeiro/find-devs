@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.resources.exception;
+package com.heber.backend.resources.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.heber.backendfinddevs.services.exception.ObjectNotAllowedException;
+import com.heber.backend.services.exception.ObjectNotAllowedException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

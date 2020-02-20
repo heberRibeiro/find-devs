@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.services.exception;
+package com.heber.backend.services.exception;
 
 public class ObjectNotAllowedException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

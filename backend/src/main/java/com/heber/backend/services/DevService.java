@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.services;
+package com.heber.backend.services;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import com.heber.backendfinddevs.domain.Dev;
-import com.heber.backendfinddevs.repository.DevRepository;
-import com.heber.backendfinddevs.resources.util.Convert;
-import com.heber.backendfinddevs.resources.util.URL;
-import com.heber.backendfinddevs.services.exception.ObjectNotAllowedException;
+import com.heber.backend.domain.Dev;
+import com.heber.backend.repository.DevRepository;
+import com.heber.backend.resources.util.Convert;
+import com.heber.backend.resources.util.URL;
+import com.heber.backend.services.exception.ObjectNotAllowedException;
 
 @Service
 public class DevService {

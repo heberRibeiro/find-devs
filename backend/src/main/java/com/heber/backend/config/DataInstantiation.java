@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.config;
+package com.heber.backend.config;
 
 import java.util.Arrays;
 
@@ -7,8 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 
-import com.heber.backendfinddevs.domain.Dev;
-import com.heber.backendfinddevs.repository.DevRepository;
+import com.heber.backend.domain.Dev;
+import com.heber.backend.repository.DevRepository;
 
 /*** Classe de configuração para carga inicial de dados ***/
 

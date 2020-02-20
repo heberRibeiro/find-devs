@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.repository;
+package com.heber.backend.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.heber.backendfinddevs.domain.Dev;
+import com.heber.backend.domain.Dev;
 
 @Repository
 public interface DevRepository extends MongoRepository<Dev, String> {

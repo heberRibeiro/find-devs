@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.resources.util;
+package com.heber.backend.resources.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

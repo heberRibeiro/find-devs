@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.resources.exception;
+package com.heber.backend.resources.exception;
 
 import java.io.Serializable;
 

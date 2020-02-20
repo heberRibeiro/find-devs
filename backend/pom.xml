@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.heber</groupId>
-	<artifactId>backendfinddevs</artifactId>
+	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backendfinddevs</name>
+	<name>backend</name>
 	<description>Finddevs project backend</description>
 
 	<properties>

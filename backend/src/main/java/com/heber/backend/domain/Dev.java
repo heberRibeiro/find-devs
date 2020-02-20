@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.domain;
+package com.heber.backend.domain;
 
 import java.io.Serializable;
 

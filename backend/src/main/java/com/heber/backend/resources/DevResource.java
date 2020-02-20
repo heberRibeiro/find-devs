@@ -1,4 +1,4 @@
-package com.heber.backendfinddevs.resources;
+package com.heber.backend.resources;
 
 import java.net.URI;
 import java.util.List;
@@ -17,11 +17,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.heber.backendfinddevs.domain.Dev;
-import com.heber.backendfinddevs.dto.DevDTO;
-import com.heber.backendfinddevs.resources.util.Convert;
-import com.heber.backendfinddevs.resources.util.URL;
-import com.heber.backendfinddevs.services.DevService;
+import com.heber.backend.domain.Dev;
+import com.heber.backend.dto.DevDTO;
+import com.heber.backend.resources.util.Convert;
+import com.heber.backend.resources.util.URL;
+import com.heber.backend.services.DevService;
 
 @RestController
 @RequestMapping
