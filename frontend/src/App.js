@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import api from './service/api'
 
 import './Global.css'
 import './App.css'
@@ -8,7 +9,6 @@ import './Main.css'
 function App() {
   const [longitude, setLongitude] = useState('')
   const [latitude, setLatitude] = useState('')
-
   const [github_username, setGithubUsername] = useState('')
   const [techs, setTechs] = useState('')
 
@@ -29,11 +29,42 @@ function App() {
     );
   }, [])
 
+  async function handleSubmit(e) {
+    e.preventDefault()
+    /* Solution using axios */
+    // const response = await api.post('/devs', {
+    //   github_username,
+    //   techs,
+    //   longitude,
+    //   latitude
+    // })
+
+    // return response
+
+    const url = "http://localhost:8080/devs"
+
+    const response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        github_username,
+        techs,
+        longitude,
+        latitude
+      })
+    })
+    return response
+  }
+
   return (
     <div id="app">
       <aside>
         <strong>Cadastrar</strong>
-        <form method="post">
+        <form onSubmit={handleSubmit}>
 
           <label htmlFor="github_username">Usuário do GitHub</label>
           <input
