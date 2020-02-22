@@ -82,9 +82,6 @@ function App() {
             onChange={e => setTechs(e.target.value)}
           />
 
-          <label htmlFor="link">Link do GitHub</label>
-          <input name="link" id="link" />
-
           <div className="coordinates">
             <div className="longitude">
               <label htmlFor="longitude">Longitude</label>
