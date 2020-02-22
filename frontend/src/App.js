@@ -7,6 +7,8 @@ import './Aside.css'
 import './Main.css'
 
 function App() {
+  const [devs, setDevs] = useState([])
+
   const [longitude, setLongitude] = useState('')
   const [latitude, setLatitude] = useState('')
   const [github_username, setGithubUsername] = useState('')
@@ -29,35 +31,48 @@ function App() {
     );
   }, [])
 
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get('/devs')
+      setDevs(response.data)
+    }
+    
+    loadDevs()
+  }, [])
+
   async function handleSubmit(e) {
     e.preventDefault()
     /* Solution using axios */
-    // const response = await api.post('/devs', {
-    //   github_username,
-    //   techs,
-    //   longitude,
-    //   latitude
-    // })
-
-    // return response
-
-    const url = "http://localhost:8080/devs"
-
-    const response = await fetch(url, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        github_username,
-        techs,
-        longitude,
-        latitude
-      })
+    const response = await api.post('/devs', {
+      github_username,
+      techs,
+      longitude,
+      latitude
     })
-    return response
+    setTechs('')           // Clear the Techs from form in the end of call
+    setGithubUsername('') // Clear the github_username from form in the end of call
+    
+   // return response
+
+    /* Solution using fetch */
+    // const url = "http://localhost:8080/devs"
+    // const response = await fetch(url, {
+    //   method: 'POST',
+    //   mode: 'cors',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     github_username,
+    //     techs,
+    //     longitude,
+    //     latitude
+    //   })
+    // })
+    // setTechs('')  // Clear the Techs from form in the end of fetch
+    // setGithubUsername('') // Clear the github_username from form in the end of fetch
+    // return response
   }
 
   return (
