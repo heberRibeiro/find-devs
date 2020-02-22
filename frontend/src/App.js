@@ -36,7 +36,7 @@ function App() {
       const response = await api.get('/devs')
       setDevs(response.data)
     }
-    
+
     loadDevs()
   }, [])
 
@@ -51,8 +51,10 @@ function App() {
     })
     setTechs('')           // Clear the Techs from form in the end of call
     setGithubUsername('') // Clear the github_username from form in the end of call
-    
-   // return response
+
+    setDevs([...devs, response.data]) // Create a new dev's array with a new post dev
+
+    // return response
 
     /* Solution using fetch */
     // const url = "http://localhost:8080/devs"
@@ -124,39 +126,21 @@ function App() {
       </aside>
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars1.githubusercontent.com/u/55813932?s=460&v=4" alt="Heber Ribeiro" />
-              <div className="dev-info">
-                <strong>Heber Ribeiro</strong>
-                <span>Java, JavaScript, Spring Boot, React</span>
-              </div>
-            </header>
-            <p>Desenvolvedor em constante aprendizado</p>
-            <a href="https://github.com/heberRibeiro/">Acessar perfil do GitHub</a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars1.githubusercontent.com/u/55813932?s=460&v=4" alt="Heber Ribeiro" />
-              <div className="dev-info">
-                <strong>Heber Ribeiro</strong>
-                <span>Java, JavaScript, Spring Boot, React</span>
-              </div>
-            </header>
-            <p>Desenvolvedor em constante aprendizado</p>
-            <a href="https://github.com/heberRibeiro/">Acessar perfil do GitHub</a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars1.githubusercontent.com/u/55813932?s=460&v=4" alt="Heber Ribeiro" />
-              <div className="dev-info">
-                <strong>Heber Ribeiro</strong>
-                <span>Java, JavaScript, Spring Boot, React</span>
-              </div>
-            </header>
-            <p>Desenvolvedor em constante aprendizado</p>
-            <a href="https://github.com/heberRibeiro/">Acessar perfil do GitHub</a>
-          </li>
+          {devs.map(dev => {
+            return (
+              <li key={dev.id} className="dev-item">
+                <header>
+                  <img src={dev.avatar_url} alt={dev.name} />
+                  <div className="dev-info">
+                    <strong>{dev.name}</strong>
+                    <span>{dev.techs.join(', ')}</span>
+                  </div>
+                </header>
+                <p>{dev.bio}</p>
+                <a href={`https://github.com/${dev.github_username}`}>Acessar perfil do GitHub</a>
+              </li>
+            )
+          })}
         </ul>
       </main>
     </div>
