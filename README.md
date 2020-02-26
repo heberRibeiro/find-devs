@@ -3,7 +3,7 @@
 Este projeto (10° semana Omnistack) realiza a inserção de desenvolvedores em banco de dado local a partir do 'user name' do github através do acesso de sua api. As Informações de geolocalização são inseridas manualmente ou capturadas a partir da api de geolocalização do navegador.
 
 ## Começando
-Tecnologias e ferramenta para rodar o projeto será necessário:
+Tecnologias e ferramenta para rodar o projeto:
 
 ###### Backend
 
