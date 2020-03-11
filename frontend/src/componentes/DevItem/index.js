@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './styles.css'
+import ButtonDelete from '../ButtonDelete'
 
 function DevItem(props) {
 
@@ -17,6 +18,7 @@ function DevItem(props) {
             </header>
             <p>{dev.bio}</p>
             <a href={`https://github.com/${dev.github_username}`}>Acessar perfil do GitHub</a>
+            <ButtonDelete />
         </li>
     )
 }
