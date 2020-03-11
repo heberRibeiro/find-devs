@@ -2,6 +2,7 @@ import React from 'react'
 
 import './styles.css'
 import ButtonDelete from '../ButtonDelete'
+import ButtonUpdate from '../ButtonUpdate'
 
 function DevItem(props) {
 
@@ -19,6 +20,7 @@ function DevItem(props) {
             <p>{dev.bio}</p>
             <a href={`https://github.com/${dev.github_username}`}>Acessar perfil do GitHub</a>
             <ButtonDelete />
+            <ButtonUpdate />
         </li>
     )
 }
