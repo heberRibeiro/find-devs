@@ -39,3 +39,8 @@ li.dev-item a {
 li.dev-item a:hover {
     color: #5a2ea6;
 }
+
+li.dev-item > div {
+   padding-bottom: 0rem;
+
+}

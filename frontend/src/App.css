@@ -35,9 +35,14 @@ label, input {
     #app main {
         width: 90vw;
         margin-top: 0;
+    }   
+}
+
+@media (max-width: 630px) {
+    #app main ul {
+        display: grid;
+        grid-template-columns: 80%;;
+        grid-row: 15px;;
+        justify-content: center;
     }
-
-    
-
-   
 }
