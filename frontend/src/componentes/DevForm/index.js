@@ -41,48 +41,51 @@ function DevForm(props) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <React.Fragment>
+            <strong>Cadastrar</strong>
+            <form onSubmit={handleSubmit}>
 
-            <label htmlFor="github_username">Usuário do GitHub</label>
-            <input
-                name="github_username"
-                id="github_username"
-                value={github_username}
-                onChange={e => setGithubUsername(e.target.value)}
-            />
+                <label htmlFor="github_username">Usuário do GitHub</label>
+                <input
+                    name="github_username"
+                    id="github_username"
+                    value={github_username}
+                    onChange={e => setGithubUsername(e.target.value)}
+                />
 
-            <label htmlFor="techs">Tecnologias</label>
-            <input
-                name="techs"
-                id="techs"
-                value={techs}
-                onChange={e => setTechs(e.target.value)}
-            />
+                <label htmlFor="techs">Tecnologias</label>
+                <input
+                    name="techs"
+                    id="techs"
+                    value={techs}
+                    onChange={e => setTechs(e.target.value)}
+                />
 
-            <div className="coordinates">
-                <div className="longitude">
-                    <label htmlFor="longitude">Longitude</label>
-                    <input
-                        type="number"
-                        name="longitude"
-                        id="longitude"
-                        value={longitude}
-                        onChange={e => setLongitude(e.target.value)}
-                    />
+                <div className="coordinates">
+                    <div className="longitude">
+                        <label htmlFor="longitude">Longitude</label>
+                        <input
+                            type="number"
+                            name="longitude"
+                            id="longitude"
+                            value={longitude}
+                            onChange={e => setLongitude(e.target.value)}
+                        />
+                    </div>
+                    <div className="latitude">
+                        <label htmlFor="latitude">Latitude</label>
+                        <input
+                            type="number"
+                            name="latitude"
+                            id="latitude"
+                            value={latitude}
+                            onChange={e => setLatitude(e.target.value)}
+                        />
+                    </div>
                 </div>
-                <div className="latitude">
-                    <label htmlFor="latitude">Latitude</label>
-                    <input
-                        type="number"
-                        name="latitude"
-                        id="latitude"
-                        value={latitude}
-                        onChange={e => setLatitude(e.target.value)}
-                    />
-                </div>
-            </div>
-            <button type="submit">Salvar</button>
-        </form>
+                <button type="submit">Salvar</button>
+            </form>
+        </React.Fragment>
     )
 }
 
