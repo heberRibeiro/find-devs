@@ -9,6 +9,7 @@ import './Main.css'
 import DevItem from './componentes/DevItem'
 import DevForm from './componentes/DevForm'
 import DevBuscar from './componentes/DevBuscar'
+import SelectForm from './componentes/SelectForm'
 
 function App() {
   const [devs, setDevs] = useState([])
@@ -33,8 +34,9 @@ function App() {
   return (
     <div id="app">
       <aside>
-        {/* <DevForm onSubmit={handleSubmit} /> */}
-        <DevBuscar/>
+        <DevForm onSubmit={handleSubmit} />
+        {/* <DevBuscar/> */}
+        <SelectForm/>
       </aside>
       <main>
         <ul>

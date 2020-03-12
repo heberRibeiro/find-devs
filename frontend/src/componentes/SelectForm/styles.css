@@ -1,0 +1,22 @@
+div.select-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    
+    font-size: 14px;
+    color: rgb(190, 181, 181);
+    font-weight: bold; 
+}
+
+div.select-form label {
+    width: fit-content;
+    margin: 0px 8px;
+}
+
+div.select-form input {
+    width: max-content;
+    margin: 0px 8px;
+    cursor: pointer;
+}
