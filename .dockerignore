@@ -1,0 +1,15 @@
+### Exclusão arquivos do contexto (root) ###
+.metadata
+.vscode
+.project
+
+### Backend ###
+*/.metadata
+*/.settings
+*/.project
+*/target
+*/HELP.md
+*/classpath
+
+### Frontend ###
+*/node_modules
