@@ -1,14 +1,9 @@
 version: "3.7"
 services:
   db:
-    image: mongo-image
+    image: mongo
     container_name: finddev-mongo-container
     restart: "always"
-    build:
-      context: ./data/db/mongo
-      dockerfile: Dockerfile
-    volumes:
-      - ./data/db/mongo:/data/db
     ports:
       - "27017:27017"
     environment:
@@ -16,7 +11,7 @@ services:
     networks:
       - rede-finddev
   backend:
-    image: finddev-backend-image
+    image: heberf/finddev-backend-image
     container_name: finddev-backend-container
     restart: "always"
     build:
@@ -31,10 +26,10 @@ services:
     command: mvn clean spring-boot:run
     networks:
       - rede-finddev
-    depends_on:
-      - db
+    #depends_on:
+    #  - db
   frontend:
-    image: finddev-frontend-image
+    image: heberf/finddev-frontend-image
     container_name: finddev-frontend-container
     restart: "always"
     build:
@@ -49,8 +44,8 @@ services:
     command: npm start
     networks:
       - rede-finddev
-    depends_on:
-      - backend
+    #depends_on:
+    #  - backend
 networks:
   rede-finddev:
     driver: "bridge"
