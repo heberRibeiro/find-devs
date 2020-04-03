@@ -1,0 +1,52 @@
+version: "3.7"
+services:
+  backend:
+    image: heberf/finddev-backend-image
+    container_name: finddev-backend-container
+    restart: "always"
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    working_dir: /usr/share/maven/backend
+    volumes:
+      - /finddev/backend:/usr/share/maven/backend
+      - ~/.m2:/root/.m2
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_BOOT_ENVIRONMENT: staging
+    env_file:
+      - .env
+    command: mvn clean spring-boot:run
+    networks:
+      - rede-finddev
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "10"
+  frontend:
+    image: heberf/finddev-frontend-image
+    container_name: finddev-frontend-container
+    restart: "always"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - '/finddev/frontend:/home/node/app/frontend'
+      - '/home/node/app/frontend/node_modules'
+    ports:
+      - "3000:3000"
+    command: npm start
+    networks:
+      - rede-finddev
+    depends_on:
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "10"
+networks:
+  rede-finddev:
+    driver: "bridge"

@@ -4,7 +4,7 @@ before_install:
   - cd .
   - echo "We are in the Docker folder"
 script:
-  - docker-compose build
+  - docker-compose -f docker-compose.prod.yml build
 before_deploy:
   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
 deploy:
