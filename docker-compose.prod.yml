@@ -1,15 +1,5 @@
 version: "3.7"
 services:
-  db:
-    image: mongo
-    container_name: finddev-mongo-container
-    restart: "always"
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_DATABASE: finddevs
-    networks:
-      - rede-finddev
   backend:
     image: heberf/finddev-backend-image
     container_name: finddev-backend-container
@@ -25,31 +15,4 @@ services:
       - "8080:8080"
     environment:
       SPRING_BOOT_ENVIRONMENT: prod
-    env_file:
-      - .env
     command: mvn clean spring-boot:run
-    networks:
-      - rede-finddev
-    #depends_on:
-    #  - db
-  frontend:
-    image: heberf/finddev-frontend-image
-    container_name: finddev-frontend-container
-    restart: "always"
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    working_dir: /home/node/app/frontend
-    volumes:
-      - '/finddev/frontend:/home/node/app/frontend'
-      - '/home/node/app/frontend/node_modules'
-    ports:
-      - "3000:3000"
-    command: npm start
-    networks:
-      - rede-finddev
-    #depends_on:
-    #  - backend
-networks:
-  rede-finddev:
-    driver: "bridge"
