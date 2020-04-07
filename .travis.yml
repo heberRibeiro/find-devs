@@ -4,13 +4,26 @@ before_install:
   - cd .
   - echo "We are in the Docker folder"
 script:
+  # build docker images with docker-compose
   - docker-compose -f docker-compose.prod.yml build
+  # links the image to the heroku app
+  - docker tag heberf/finddev-backend-image registry.heroku.com/${HEROKU_APP_NAME}/web
 before_deploy:
+  # install the heroku CLI to log into the heroku registry
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  # login to docker registries (dockerhub)
   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+  # login to docker registries (heroku)
+  - echo "${HEROKU_PASSWORD}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
 deploy:
   provider: script
   script:
-    docker push heberf/finddev-backend-image
+    # push to dockerhub
+    docker push heberf/finddev-backend-image;
+    # push to dockerhub & heroku
+    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+    # heroku release after pushing using Heroku's Api Key as environment variable in Travis
+    heroku container:release web --app $HEROKU_APP_NAME
   on:
     branch: master
 notifications:
