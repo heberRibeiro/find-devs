@@ -14,16 +14,16 @@ before_deploy:
   # login to docker registries (dockerhub)
   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
   # login to docker registries (heroku)
-  - echo "${HEROKU_PASSWORD}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
+  - echo "${HEROKU_PASSWORD}" | docker login --username "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
 deploy:
   provider: script
   script:
-    # push to dockerhub
+    # push to dockerhub (1st command)
+    # push to dockerhub & heroku (2nd command)
+    # heroku release after pushing using Heroku's Api Key as environment variable in Travis (3rd command)
     docker push heberf/finddev-backend-image;
-    # push to dockerhub & heroku
-    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    # heroku release after pushing using Heroku's Api Key as environment variable in Travis
-    heroku container:release web --app $HEROKU_APP_NAME
+    docker push registry.heroku.com/${HEROKU_APP_NAME}/web;
+    heroku container:release web --app ${HEROKU_APP_NAME}
   skip_cleanup: true
   on:
     branch: master
