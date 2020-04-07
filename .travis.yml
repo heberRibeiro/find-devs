@@ -24,6 +24,7 @@ deploy:
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
     # heroku release after pushing using Heroku's Api Key as environment variable in Travis
     heroku container:release web --app $HEROKU_APP_NAME
+  skip_cleanup: true
   on:
     branch: master
 notifications:
